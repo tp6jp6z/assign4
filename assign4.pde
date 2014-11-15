@@ -120,8 +120,8 @@ void alienMaker() {
   int alienInRow= 12;
   
   for(int i= 0; i<alienTotalNum; i++){
-     int row= i/ alienInRow;
-    int col= i% alienInRow;
+    int row= int(i/ alienInRow);
+    int col= int(i% alienInRow);
     
     int x= 50+ col*40;
     int y= 50+ row*50;
@@ -133,8 +133,8 @@ void drawLife() {
   fill(230, 74, 96);
   text("LIFE:", 36, 455);
   /*---------Draw Ship Life---------*/
-   for(int lifeNum= 0; lifeNum< ship.life; lifeNum++){
-     int x= 78+ lifeNum* 25;
+   for(float lifeNum= 0; lifeNum< ship.life; lifeNum++){
+     float x= 78+ lifeNum* 25;
      ellipse(x,459,15,15);
    }
 }
