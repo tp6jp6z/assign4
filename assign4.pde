@@ -120,8 +120,8 @@ void alienMaker() {
   int alienInRow= 12;
   
   for(int i= 0; i<alienTotalNum; i++){
-     int row= i/ alienInRow;
-    int col= i% alienInRow;
+    int row= int(i/ alienInRow);
+    int col= int(i% alienInRow);
     
     int x= 50+ col*40;
     int y= 50+ row*50;
@@ -311,17 +311,19 @@ void checkRubyDrop(int reachPoint){
     ruby.move();
     checkRubyCatch();
   }
+  
+  if(point< reachPoint){
+    ship.upGrade= false;
+  }
 }
 
 /*---------Check Level Up------------------*/
 void checkRubyCatch(){
+  
   if((ruby.pX<= ship.posX+ ship.shipSize) && (ruby.pX>= ship.posX- ship.shipSize)
      &&(ruby.pY<= ship.posY+ ship.shipSize) && (ruby.pY>= ship.posY- ship.shipSize)){
     ruby.show= false;
     ship.upGrade= true;
-    
-    if(ship.upGrade){
-    }
   }
 }
 
