@@ -63,7 +63,7 @@ void draw() {
 
     /*---------Call functions---------------*/ 
     alienShoot(50);
-    checkRubyDrop(100);
+    checkRubyDrop(200);
     
     checkAlienDead();/*finish this function*/
     checkShipHit();  /*finish this function*/
