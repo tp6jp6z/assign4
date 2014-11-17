@@ -311,6 +311,10 @@ void checkRubyDrop(int reachPoint){
     ruby.move();
     checkRubyCatch();
   }
+  
+  if(point< reachPoint){
+    ship.upGrade= false;
+  }
 }
 
 /*---------Check Level Up------------------*/
