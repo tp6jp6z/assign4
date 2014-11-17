@@ -198,12 +198,15 @@ void shootBullet(int frame) {
     } 
     /*---------Ship Upgrade Shoot-------------*/
     else {
-      bList[bulletNum]= new Bullet(ship.posX, ship.posY, -3, 0); 
-      if (bulletNum<bList.length-2) {
-        bulletNum+=1;
-      } else {
-        bulletNum = 0;
-      }
+      for(int xSpeed= -3; xSpeed<= 3; xSpeed+= 3){
+        bList[bulletNum]= new Bullet(ship.posX, ship.posY, -3, xSpeed);
+       if (bulletNum<bList.length-2) {
+         bulletNum+=1;
+         } else {
+           bulletNum = 0;
+           xSpeed= 0;
+           }
+         }
     }
     countBulletFrame = 0;
   }
