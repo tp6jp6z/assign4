@@ -63,7 +63,7 @@ void draw() {
 
     /*---------Call functions---------------*/ 
     alienShoot(50);
-    checkRubyDrop(200);
+    checkRubyDrop(100);
     
     checkAlienDead();/*finish this function*/
     checkShipHit();  /*finish this function*/
@@ -198,12 +198,15 @@ void shootBullet(int frame) {
     } 
     /*---------Ship Upgrade Shoot-------------*/
     else {
-      bList[bulletNum]= new Bullet(ship.posX, ship.posY, -3, 0); 
-      if (bulletNum<bList.length-2) {
-        bulletNum+=1;
-      } else {
-        bulletNum = 0;
-      }
+      for(int xSpeed= -3; xSpeed<=3; xSpeed+= 3){
+        bList[bulletNum]= new Bullet(ship.posX, ship.posY, -3, xSpeed);
+        if (bulletNum<bList.length-2) {
+          bulletNum+=1;
+          } else {
+            bulletNum = 0;
+            xSpeed= -3;
+            }
+          }
     }
     countBulletFrame = 0;
   }
@@ -316,11 +319,9 @@ void checkRubyCatch(){
      &&(ruby.pY<= ship.posY+ ship.shipSize) && (ruby.pY>= ship.posY- ship.shipSize)){
     ruby.show= false;
     ship.upGrade= true;
-    
-    if(ship.upGrade){
-    }
   }
 }
+
 
 /*---------Print Text Function-------------*/
 void printText(){
